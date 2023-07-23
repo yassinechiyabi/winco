@@ -12,6 +12,6 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
-        return $request->expectsJson() ? null : response("Erreur survenu",401)->header("Content-Type","text/plain");
+        return $request->expectsJson() ? null : ('https://wincomedia.com');
     }
 }

@@ -17,7 +17,8 @@ class ClientRegister_controller extends Controller
                 'nomClient'=> ['required','max:255'],
                 'prenomClient'=> ['required','max:255'],
                 'email'=> ['required','unique:client','email','max:255'],
-                'password'=> ['required','max:255']
+                'password'=> ['required','max:255'],
+				'phone'=>['required','max:255'],
             ]
             );
 
@@ -27,6 +28,7 @@ class ClientRegister_controller extends Controller
             $client->prenomClient=$validated_client['prenomClient'];
             $client->email=$validated_client['email'];
             $client->password=Hash::make($validated_client['password']);
+			$client->phone=$validated_client['phone'];
             $returnValue=$client->save();
             if($returnValue){
                 Auth::attempt($validated_client,true);
